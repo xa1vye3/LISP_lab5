@@ -6,7 +6,7 @@
 </p>
 <p align="right"><b>Студент</b>: Кузнецов Дмитро Сергійович КВ-21</p>
 <p align="right"><b>Рік</b>: 2025</p>
- 
+
 ## Загальне завдання
 В роботі необхідно реалізувати утиліти для роботи з базою даних, заданою за варіантом
 (п. 5.1.1). База даних складається з кількох таблиць. Таблиці представлені у вигляді CSV
@@ -117,6 +117,7 @@
                        :if-exists :supersede)
     (dolist (r records)
       (funcall printer r out))))
+
 (defun article->csv (a stream)
   (format stream "~a,~a,~a,~a,~a~%"
           (article-id a)
@@ -179,6 +180,7 @@
  "result.csv"
  #'article->csv)
 ```
+  
 ### Тестові набори та утиліти
 ```lisp
 (defun check-read-test (test-name file-path row->record expected)
@@ -196,6 +198,8 @@
                          :specialty-id (getf filter-alist :specialty-id))))
     (format t "Test: ~A - ~:[FAILED~;PASSED~]~%" test-name
             (equalp result expected))))
+
+
 (defun run-tests ()
   (check-read-test "Read specialties"
                    "specialties.csv"
@@ -232,6 +236,7 @@
 
 (run-tests)
 ```
+
 ### Тестування
 ```lisp
 Test: Read specialties - PASSED
