@@ -229,7 +229,7 @@
   (print-articles-with-specialties
    (funcall (select "articles.csv" #'make-article-from-row))
    (load-specialties "specialties.csv")))
-```
+
 (run-tests)
 ```
 ### Тестування
